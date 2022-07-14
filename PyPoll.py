@@ -9,16 +9,23 @@ import csv
 import datetime
 import os
 
-# get elections data path
+# set elections data path
 election_data_dir = os.path.join('Resources', 'election_results.csv')
+
+# set elections analysis path
+file_to_save = os.path.join('Analysis', 'election_analysis.txt')
 
 # open and read the elections data 
 with open(election_data_dir) as election_data:
-    print(election_data)
-
     # analyse data
+    file_reader = csv.reader(election_data)
+    header = next(file_reader)
+    print(header)
+    
 
-election_analysis_dir = os.path.join('Analysis', 'election_analysis.txt')
+    
 
-with open(election_analysis_dir, 'w') as election_analysis:
-    print('here')
+
+# Open the file
+with open(file_to_save, 'w') as outfile:
+    outfile.write('Hello World')
